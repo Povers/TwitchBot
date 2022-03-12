@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+<style>
+    html {
+        background-color: transparent;
+    }
+</style>
+</style>
+</head>
+<body>
+<h1>Test</h1>
+<p>This is a test page.</p>
+</body>
+<script>
+    setInterval(() => {
+        fetch('http://localhost:3000/getdata').then(function (response) {
+	    // The API call was successful!
+        let res = response.json();
+        console.log(res);
+	    return res;
+    }).then(function (data) {
+        // This is the JSON from our response
+        console.log(data);
+    }).catch(function (err) {
+        // There was an error
+        console.warn('Something went wrong.', err);
+    });
+    }, 1000);
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+<style>
+    button {
+        margin-top: 20px;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <h1>Poll Manager</h1>
+    <form method="post" action="/manage_poll/set">
+        <label for="question">Question:</label><br>
+        <input type="text" id="question" name="question" value="Winner ?" placeholder="Qui va gagner ?"><br>
+        <label for="answers">Réponses</label><br>
+        <input type="text" id="answers" name="answers" value="A,B,C,D" placeholder="ABC,DEF,GHI,JKL"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+    <a><button onclick="resetPoll()">Reset</button></a>
+</body>
+<script>
+    function resetPoll() {
+        fetch(window.location.origin + '/manage_poll/reset').then(function (response) {
+        }).catch(function (err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        });
+    }
+</script>
+</html>
